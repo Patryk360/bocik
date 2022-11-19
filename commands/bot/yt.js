@@ -4,7 +4,7 @@ module.exports = {
     name: 'yt',
     usage: '!yt',
     execute: async(message, client, args) => {
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
         .setTitle('Współpraca yt')
         .setColor('RED')
         .setDescription('Wcisnij se guziczek i bedzie git');

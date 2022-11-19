@@ -18,6 +18,5 @@ module.exports = {
             client.user.setActivity(status, {type: 'WATCHING'});
     
         }, 5000)
-
     }
 }

@@ -6,7 +6,7 @@ module.exports = {
     execute: async(message, args) => {
         const member = message.mentions.members.first() || message.author;
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
         .setTitle('Avatar URL')
         .setURL(member.displayAvatarURL())
         //.setAuthor(member.tag, member.avatarURL({dynamic: false, size: 512}))

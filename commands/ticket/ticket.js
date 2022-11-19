@@ -1,10 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({
-    intents: [
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_MESSAGES
-    ]
-});
 module.exports = {
     name: 'ticket',
     description: 'ticket',
@@ -15,7 +9,7 @@ module.exports = {
         //const tchannell = client.channels.cache.get('1033839158952734720');//ustaw to chuju
         //if(!tchannell) console.log('nie ma kanalu do tworzenia ticketow');
 
-        const tembed = new Discord.MessageEmbed()
+        const tembed = new Discord.EmbedBuilder()
         .setTitle('Tickets')
         .setDescription('Wcisnij przycisk, aby utworzyć ticket');
         const buttons = new Discord.MessageActionRow().addComponents(

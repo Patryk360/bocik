@@ -8,7 +8,7 @@ module.exports = {
         let {body} = await superagent
         .get('http://aws.random.cat//meow')
 
-        let embed = new Discord.MessageEmbed()
+        let embed = new Discord.EmbedBuilder()
         .setTitle('Kotek')
         .setImage(body.file)
         .setFooter({text: `${message.author.tag}`, iconURL: `${message.author.avatarURL({ dynamic: true })}`})

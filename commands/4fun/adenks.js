@@ -8,7 +8,7 @@ module.exports = {
         let {body} = await superagent
         .get('https://random.dog/woof.json')
 
-        let embed = new Discord.MessageEmbed()
+        let embed = new Discord.EmbedBuilder()
         .setTitle('Pies')
         .setImage(body.url)
         .setFooter({text: `${message.author.tag}`, iconURL: `${message.author.avatarURL({ dynamic: true })}`})

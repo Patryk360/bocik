@@ -1,12 +1,6 @@
 const Discord = require('discord.js');
 const AsciiTable = require('ascii-table');
 const { createTranscript } = require('discord-html-transcripts');
-const client = new Discord.Client({
-    intents: [
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_MESSAGES
-    ]
-});
 module.exports = {
     name: 'close',
     description: 'close',
@@ -16,14 +10,14 @@ module.exports = {
         const kanal = client.channels.cache.get('1036251615755251835');
 
         if(!message.member.permissions.has('MANAGE_CHANNELS')){
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.EmbedBuilder()
             .setTitle('Nie masz uprawnień do używania tej komendy!')
             .setTimestamp()
             .setFooter({text: `${message.author.tag}`, iconURL: `${message.author.avatarURL({ dynamic: true })}`});
             message.channel.send({ embeds: [embed] });
         }else if(message.member.permissions.has('MANAGE_CHANNELS')){
 
-            const tembed = new Discord.MessageEmbed()
+            const tembed = new Discord.EmbedBuilder()
                 //.setTitle(`${message.author.tag}`)
                 .setDescription('Czy napewno usunąć kanał?')
                 //.setColor('#060fbf')

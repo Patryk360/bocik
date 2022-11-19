@@ -14,7 +14,7 @@ module.exports = {
         const webhooks = await message.channel.fetchWebhooks();
         const webhook = webhooks.find(wh => wh.token);
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
             .setTitle('Sex?')
             .addFields(
                 {name: `Propozycje`, value: `${mes}`, inline: false}

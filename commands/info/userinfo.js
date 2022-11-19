@@ -10,7 +10,7 @@ module.exports = {
         
         
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
         .setTitle('Informacja o użytkowniku')
         .setThumbnail(member.displayAvatarURL())
         .addFields(

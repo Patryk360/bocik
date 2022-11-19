@@ -1,21 +1,4 @@
 const Discord = require("discord.js");
-const client = new Discord.Client({
-    intents: [
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_MESSAGES,
-      Discord.Intents.FLAGS.GUILD_MEMBERS,
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_BANS,
-      Discord.Intents.FLAGS.GUILD_WEBHOOKS,
-      Discord.Intents.FLAGS.GUILD_PRESENCES,
-      Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-      Discord.Intents.FLAGS.GUILD_SCHEDULED_EVENTS,
-      Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
-      //Discord.Intents.FLAGS.INVITE_CREATE,
-    ]
-});
-const discordModals = require('discord-modals');
-discordModals(client);
 
 module.exports = {
     name: 'interactionCreate',

@@ -8,13 +8,13 @@ module.exports = {
         let opcja = args[0];
         let jd = args.slice(1);
         
-        const zembed = new Discord.MessageEmbed()
+        const zembed = new Discord.EmbedBuilder()
         .setTitle('Złe użycie!')
         .setColor('#db0000')
         .setDescription('Użyj `!set help`, aby się dowiedzieć więcej')
         if(!args[0]) return message.reply({ embeds: [zembed] });
 
-        const hembed = new Discord.MessageEmbed()
+        const hembed = new Discord.EmbedBuilder()
         .setTitle('Ustawienia ID')
         .setColor('#060fbf')
         .setDescription('Użycie: !set <opcja> <id>')
@@ -35,7 +35,7 @@ module.exports = {
             LogsChannel: args.slice(1)
         };
         if(opcja === 'logc') {
-            const lemebed = new Discord.MessageEmbed()
+            const lemebed = new Discord.EmbedBuilder()
             .setTitle('Ustawienie kanału od logów')
             .setDescription(`Pomyślnie zmieniono id na: ${jd}`)
             .setFooter({text: `${message.author.tag}`, iconURL: `${message.author.avatarURL({ dynamic: true })}`})

@@ -13,7 +13,7 @@ module.exports = {
         let mes = args.join(" ");
         const tak = '✅';
         const nie = '❌';
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
         .setTitle('Nowa ankieta')
         .addFields(
             {name: `Propozycja`, value: `${mes}`, inline: false}

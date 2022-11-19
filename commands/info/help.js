@@ -5,7 +5,7 @@ module.exports = {
     usage: '!help',
     execute: async(message, args, client) => {
         //let bicon = client.user.displayAvatarURL({ dynamic :true });
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.EmbedBuilder()
         .setTitle('Komendy bota:')
         //.setThumbnail(client.displayAvatarURL({dynamic: false, size: 512}))
         .setColor("#0000")

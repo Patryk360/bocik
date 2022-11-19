@@ -2,21 +2,25 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client({
     intents: [
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_MESSAGES,
-      Discord.Intents.FLAGS.GUILD_MEMBERS,
-      Discord.Intents.FLAGS.GUILDS,
-      Discord.Intents.FLAGS.GUILD_BANS,
-      Discord.Intents.FLAGS.GUILD_WEBHOOKS,
-      Discord.Intents.FLAGS.GUILD_PRESENCES,
-      Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-      Discord.Intents.FLAGS.GUILD_SCHEDULED_EVENTS,
-      Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
-      //Discord.Intents.FLAGS.INVITE_CREATE,
+        Discord.GatewayIntentBits.DirectMessageReactions,
+        Discord.GatewayIntentBits.GuildBans,
+        Discord.GatewayIntentBits.GuildInvites,
+        Discord.GatewayIntentBits.GuildMessageTyping,
+        Discord.GatewayIntentBits.GuildScheduledEvents,
+        Discord.GatewayIntentBits.Guilds,
+        Discord.GatewayIntentBits.DirectMessageTyping,
+        Discord.GatewayIntentBits.GuildEmojisAndStickers,
+        Discord.GatewayIntentBits.GuildMembers,
+        Discord.GatewayIntentBits.GuildMessages,
+        Discord.GatewayIntentBits.GuildVoiceStates,
+        Discord.GatewayIntentBits.MessageContent,
+        Discord.GatewayIntentBits.DirectMessages,
+        Discord.GatewayIntentBits.GuildIntegrations,
+        Discord.GatewayIntentBits.GuildMessageReactions,
+        Discord.GatewayIntentBits.GuildPresences,
+        Discord.GatewayIntentBits.GuildWebhooks
     ]
 });
-const discordModals = require('discord-modals');
-discordModals(client);
 
 client.commands = new Discord.Collection();
 //const ascii = require('ascii-table');
@@ -28,8 +32,7 @@ for(const folder of commandfolder) {
 
     const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 
-    for(const file of commandFiles){
-        
+    for(const file of commandFiles) {
         const command = require(`./commands/${folder}/${file}`);
         client.commands.set(command.name, command);
 
@@ -37,7 +40,7 @@ for(const folder of commandfolder) {
             //table.addRow(file, '✅');
             //console.log(file,'✅');
             console.log('✅|', file);
-        }else{
+        } else {
             //table.addRow(file, `❌`);
             //console.log(file, `❌ -> cos sie zesrało`);
             console.log('❌|', file);
@@ -65,13 +68,12 @@ client.on('messageCreate', async message => {
     if(!client.commands.has(commandName)) return;
 
     const command = client.commands.get(commandName);
-    try{
-        command.execute(message, args)
-    }catch (error){
+    try {
+        command.execute(message, args, client);
+    } catch (error) {
         console.error(error);
         console.log('ta komenda nie dziala');
     }
 });
 
-
-client.login("token");
+client.login("");
